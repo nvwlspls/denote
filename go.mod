@@ -1,0 +1,3 @@
+module denote
+
+go 1.24.1
