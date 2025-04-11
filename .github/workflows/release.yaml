@@ -59,8 +59,16 @@ jobs:
         with:
           title: Release ${{ github.ref_name }}
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            denote.zip
+  upload_artifacts:
+      name: Upload Release Assets
+      needs: release
+      runs-on: ubuntu-latest
+      steps:
+        - name: upload the upload_artifacts:
+          uses: skx/github-action-publish-binaries@release-1.3
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            releaseId: ${{ needs.release.outputs.id }}
+            args: |
+              -f denote.zip
