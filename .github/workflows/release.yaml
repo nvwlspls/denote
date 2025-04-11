@@ -27,6 +27,9 @@ jobs:
       - name: Build executable
         run: |
           go build -o denote
+        env:
+          GOOS: darwin
+          GOARCH: amd64
 
       # Archive the build artifact
       - name: Create release artifact
