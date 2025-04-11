@@ -4,7 +4,9 @@ on:
   push:
     tags:
       - 'v*' # Trigger workflow on version tags (e.g., v1.0.0)
-
+permissions:
+  packages: write
+  contents: write
 jobs:
   build:
     name: Build Project
