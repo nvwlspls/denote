@@ -45,7 +45,7 @@ func openEditor(fileName string, dir string) {
 		editor = "vim" // Default to vim if EDITOR is not set
 	}
 
-	cmd := exec.Command(editor, "+normal Go", dir+fileName)
+	cmd := exec.Command(editor, "+normal G", dir+fileName)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
